@@ -106,6 +106,11 @@ export function appReducer(state: AppState, action: AppAction): AppState {
           return obj;
         }),
       };
+    case "SET_SELECTED_OBJECT_ID":
+      return {
+        ...state,
+        selectedObjectId: action.payload,
+      };
     default:
       return state;
   }

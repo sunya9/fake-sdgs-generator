@@ -28,6 +28,7 @@ export type AppState = {
   selectedColor: string;
   textAlign: TextAlign;
   lineHeight: number;
+  selectedObjectId: string | null;
   canvasObjects: CanvasObject[];
 };
 
@@ -37,6 +38,7 @@ export type AppAction =
   | { type: "SET_SELECTED_COLOR"; payload: string }
   | { type: "SET_TEXT_ALIGN"; payload: TextAlign }
   | { type: "SET_LINE_HEIGHT"; payload: number }
+  | { type: "SET_SELECTED_OBJECT_ID"; payload: string | null }
   | {
       type: "ADD_ICON_TO_CANVAS";
       payload: {

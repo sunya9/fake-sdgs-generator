@@ -34,6 +34,7 @@ export const initialState: AppState = {
   selectedColor: DEFAULT_APP_STATE.selectedColor,
   textAlign: DEFAULT_APP_STATE.textAlign,
   lineHeight: DEFAULT_APP_STATE.lineHeight,
+  selectedObjectId: null,
   canvasObjects: [
     {
       id: "sdg-number",

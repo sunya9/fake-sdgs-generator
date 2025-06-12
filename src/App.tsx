@@ -12,8 +12,9 @@ export function App() {
       textAlign,
       lineHeight,
       canvasObjects,
+      selectedObjectId,
     },
-    actions: { addIconToCanvas, resetPositionsAndStyles },
+    actions: { addIconToCanvas, resetPositionsAndStyles, setSelectedObjectId },
     handlers: {
       handleSdgNumberChange,
       handleSdgTextChange,
@@ -59,6 +60,8 @@ export function App() {
           sdgText={sdgText}
           selectedColor={selectedColor}
           canvasObjects={canvasObjects}
+          selectedObjectId={selectedObjectId}
+          setSelectedObjectId={setSelectedObjectId}
           onObjectDragEnd={handleObjectDragEnd}
           onObjectTransformEnd={handleObjectTransformEnd}
           onObjectDoubleClick={handleObjectDoubleClick}

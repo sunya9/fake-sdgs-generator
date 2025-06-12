@@ -24,6 +24,8 @@ interface SDGPreviewProps {
   sdgNumber: string;
   sdgText: string;
   selectedColor: string;
+  selectedObjectId: string | null;
+  setSelectedObjectId: (value: string | null) => void;
   canvasObjects: CanvasObject[];
   onObjectDragEnd: (id: string, e: Konva.KonvaEventObject<DragEvent>) => void;
   onObjectTransformEnd: (
@@ -38,6 +40,8 @@ export function SDGPreview({
   sdgNumber,
   sdgText,
   selectedColor,
+  selectedObjectId,
+  setSelectedObjectId,
   canvasObjects,
   onObjectDragEnd,
   onObjectTransformEnd,
@@ -46,7 +50,6 @@ export function SDGPreview({
 }: SDGPreviewProps) {
   const stageRef = useRef<Konva.Stage>(null);
   const transformerRef = useRef<Konva.Transformer>(null);
-  const [selectedObjectId, setSelectedObjectId] = useState<string | null>(null);
 
   // Transformer selection handling
   useEffect(() => {
@@ -56,11 +59,9 @@ export function SDGPreview({
       const selectedNode = stageRef.current?.findOne(`#${selectedObjectId}`);
       if (selectedNode) {
         transformerRef.current.nodes([selectedNode]);
-        transformerRef.current.getLayer()?.batchDraw();
       }
     } else {
       transformerRef.current.nodes([]);
-      transformerRef.current.getLayer()?.batchDraw();
     }
   }, [selectedObjectId]);
 
@@ -72,7 +73,7 @@ export function SDGPreview({
         setSelectedObjectId(null);
       }
     },
-    [],
+    [setSelectedObjectId],
   );
 
   const handleStageMouseDown = useCallback(
@@ -82,12 +83,8 @@ export function SDGPreview({
         setSelectedObjectId(null);
       }
     },
-    [],
+    [setSelectedObjectId],
   );
-
-  const handleObjectClick = useCallback((id: string) => {
-    setSelectedObjectId(id);
-  }, []);
 
   const downloadImage = useCallback(async () => {
     if (stageRef.current) {
@@ -185,7 +182,7 @@ export function SDGPreview({
                   scaleX={obj.scaleX || 1}
                   scaleY={obj.scaleY || 1}
                   draggable
-                  onClick={() => handleObjectClick(obj.id)}
+                  onClick={() => setSelectedObjectId(obj.id)}
                   onDragEnd={(e) => onObjectDragEnd(obj.id, e)}
                   onTransformEnd={(e) => onObjectTransformEnd(obj, e)}
                   onDblClick={() => onObjectDoubleClick(obj)}

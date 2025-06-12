@@ -29,6 +29,10 @@ export function useAppReducer() {
     dispatch({ type: "SET_LINE_HEIGHT", payload: value });
   }, []);
 
+  const setSelectedObjectId = useCallback((value: string | null) => {
+    dispatch({ type: "SET_SELECTED_OBJECT_ID", payload: value });
+  }, []);
+
   const addIconToCanvas = useCallback((iconInfo: IconInfo) => {
     // Create a temporary container to render the SVG
     const tempContainer = document.createElement("div");
@@ -156,9 +160,10 @@ export function useAppReducer() {
       // Only delete icon objects, not text objects
       if (obj.type === "icon") {
         deleteCanvasObject(obj.id);
+        setSelectedObjectId(null);
       }
     },
-    [deleteCanvasObject],
+    [deleteCanvasObject, setSelectedObjectId],
   );
 
   return {
@@ -169,6 +174,7 @@ export function useAppReducer() {
       setSelectedColor,
       setTextAlign,
       setLineHeight,
+      setSelectedObjectId,
       addIconToCanvas,
       updateCanvasObject,
       deleteCanvasObject,
