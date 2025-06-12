@@ -143,9 +143,9 @@ export const IconSelector = memo(function IconSelector({
         onChange={(e) => setIconFilter(e.target.value)}
       />
 
-      <div className="grid grid-cols-[auto_1fr] gap-4">
+      <div className="mt-4 grid grid-cols-[auto_1fr] gap-4">
         {/* Icon Pack Filter */}
-        <div className="space-y-2">
+        <div className="space-y-4">
           <div>
             <Label>
               アイコンパック
@@ -214,7 +214,7 @@ export const IconSelector = memo(function IconSelector({
                           onClick={() => onIconSelect(iconInfo)}
                           title={`${iconInfo.name} (${iconInfo.pack}) をcanvasに追加`}
                         >
-                          <IconComponent />
+                          <IconComponent size={28} />
                         </button>
                       );
                     })}
