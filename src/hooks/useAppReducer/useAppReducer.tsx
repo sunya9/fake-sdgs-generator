@@ -119,7 +119,7 @@ export function useAppReducer() {
 
   // Canvas event handlers
   const handleObjectDragEnd = useCallback(
-    (id: string) => (e: Konva.KonvaEventObject<DragEvent>) => {
+    (id: string, e: Konva.KonvaEventObject<DragEvent>) => {
       updateCanvasObject(id, {
         x: e.target.x(),
         y: e.target.y(),
@@ -129,7 +129,7 @@ export function useAppReducer() {
   );
 
   const handleObjectTransformEnd = useCallback(
-    (obj: CanvasObject) => (e: Konva.KonvaEventObject<Event>) => {
+    (obj: CanvasObject, e: Konva.KonvaEventObject<Event>) => {
       const node = e.target;
       const scaleX = node.scaleX();
       const scaleY = node.scaleY();
@@ -152,8 +152,7 @@ export function useAppReducer() {
   );
 
   const handleObjectDoubleClick = useCallback(
-    (obj: CanvasObject) => () => {
-      console.log("handleObjectDoubleClick", { obj });
+    (obj: CanvasObject) => {
       // Only delete icon objects, not text objects
       if (obj.type === "icon") {
         deleteCanvasObject(obj.id);
