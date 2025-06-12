@@ -143,7 +143,7 @@ export const IconSelector = memo(function IconSelector({
         onChange={(e) => setIconFilter(e.target.value)}
       />
 
-      <div className="mt-4 grid grid-cols-[auto_1fr] gap-4">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-[auto_1fr]">
         {/* Icon Pack Filter */}
         <div className="space-y-4">
           <div>
@@ -203,19 +203,26 @@ export const IconSelector = memo(function IconSelector({
                       height: `${virtualItem.size}px`,
                       transform: `translateY(${virtualItem.start}px)`,
                     }}
-                    className="grid grid-cols-5 gap-2 p-2"
+                    className="grid grid-cols-5 gap-4 p-2"
                   >
                     {iconsInRow.map((iconInfo) => {
                       const IconComponent = iconInfo.component;
                       return (
-                        <button
+                        <div
+                          className="flex flex-col items-center gap-2"
                           key={`${iconInfo.pack}-${iconInfo.name}`}
-                          className="flex aspect-square items-center justify-center border"
-                          onClick={() => onIconSelect(iconInfo)}
-                          title={`${iconInfo.name} (${iconInfo.pack}) をcanvasに追加`}
                         >
-                          <IconComponent size={28} />
-                        </button>
+                          <button
+                            onClick={() => onIconSelect(iconInfo)}
+                            className="flex aspect-square flex-1 items-center justify-center border p-1"
+                            title={`${iconInfo.name} (${iconInfo.pack}) をcanvasに追加`}
+                          >
+                            <IconComponent size={28} />
+                          </button>
+                          <span className="w-full truncate text-center text-xs text-muted-foreground">
+                            {iconInfo.name}
+                          </span>
+                        </div>
                       );
                     })}
                   </div>
