@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      react-dependencies:
+        patterns:
+          - "react"
+          - "react-*"
+          - "@radix-ui/*"
+          - "@types/react"
+          - "@types/react-*"
+      dev-dependencies-minor:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions-minor:
+        update-types:
+          - "minor"
+          - "patch"
