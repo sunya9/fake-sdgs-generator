@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# Fake SDGs Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ありもしないSDGsの標語を作成するジョークサイトです。
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+国連のSDGs（持続可能な開発目標）のパロディとして、架空のSDGs画像を生成できるWebアプリケーションです。SDGsらしい見た目の画像を作成して、ジョークやパロディとして楽しむことができます。
 
-## Expanding the ESLint configuration
+## 主な機能
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **自由なSDG番号入力**: 1-17の既存番号に加え、18番以降の架空番号も設定可能
+- **カスタム標語テキスト**: 任意のテキストでSDGs風の標語を作成
+- **豊富なアイコン選択**: 19種類のアイコンパック（数千種類のアイコン）から選択
+- **柔軟な色選択**: SDGsプリセット色17色 + カスタムカラーピッカー
+- **自由なレイアウト**: キャンバスベースのドラッグ&ドロップによるアイコン配置
+- **画像ダウンロード**: 384x384pxの高品質PNG画像を生成・ダウンロード
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 技術スタック
+
+### フロントエンド
+
+- **React 19** + **TypeScript** - UI フレームワーク
+- **Vite** - ビルドツール
+- **Tailwind CSS** - スタイリング
+
+### UI コンポーネント
+
+- **Radix UI** - アクセシブルなUIコンポーネント（Button, Card, Input等）
+- **shadcn/ui** - Radix UIベースのカスタムコンポーネント
+- **Lucide React** - アイコンライブラリ（UI用）
+
+### アイコン・色選択
+
+- **react-icons** - 19種類のアイコンパック統合
+- **@tanstack/react-virtual** - 大量アイコンの仮想化表示
+- **react-color** - カラーピッカー
+
+### キャンバス・画像生成
+
+- **konva** + **react-konva** - キャンバスベースの描画とPNG画像生成
+
+### パッケージマネージャー
+
+- **pnpm** - 高速なパッケージ管理
+
+## 開発
+
+```bash
+# 依存関係のインストール
+pnpm install
+
+# 開発サーバー起動
+pnpm run dev
+
+# ビルド
+pnpm run build
+
+# 型チェック・リント
+pnpm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ライセンス
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+このプロジェクトはジョーク・パロディ目的で作成されており、実際のSDGsとは一切関係ありません。
