@@ -5,21 +5,30 @@ export type TextAlign = "left" | "center" | "right";
 
 export type CanvasObject = {
   id: string;
-  type: "icon" | "text";
   x: number;
   y: number;
+  rotation: number;
+  scaleX: number;
+  scaleY: number;
+  width?: number;
+  height?: number;
+} & (IconObject | TextObject);
+
+export type TextObject = {
+  type: "text";
+  fontSize: number;
+  fill: string;
+  align: "left" | "center" | "right";
+  lineHeight: number;
+  text: string;
+};
+
+export type IconObject = {
+  type: "icon";
   width: number;
   height: number;
-  rotation: number;
-  scaleX?: number;
-  scaleY?: number;
-  iconInfo?: IconInfo;
-  imageElement?: Konva.Image;
-  text?: string;
-  fontSize?: number;
-  fill?: string;
-  align?: "left" | "center" | "right";
-  lineHeight?: number;
+  iconInfo: IconInfo;
+  imageElement: Konva.Image;
 };
 
 export type AppState = {

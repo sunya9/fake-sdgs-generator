@@ -3,14 +3,14 @@ import type { AppState } from "./types";
 export const DEFAULT_CANVAS_SIZE = 384;
 
 export const DEFAULT_POSITIONS = {
-  SDG_NUMBER: { x: 60, y: 90, width: 300, height: 128 },
-  SDG_TEXT: { x: 140, y: 90, width: 300, height: 60 },
+  SDG_NUMBER: { x: 60, y: 90 },
+  SDG_TEXT: { x: 140, y: 90 },
   ICON_DEFAULT: { x: 192, y: 300, width: 120, height: 120 },
   ICON_NEW: { x: 192, y: 288, width: 120, height: 120 },
 } as const;
 
 export const DEFAULT_STYLES = {
-  SDG_NUMBER: { fontSize: 128, fill: "white" },
+  SDG_NUMBER: { fontSize: 128, fill: "white", align: "center" as const, lineHeight: 1.0 },
   SDG_TEXT: {
     fontSize: 24,
     fill: "white",

@@ -59,11 +59,19 @@ export function appReducer(state: AppState, action: AppAction): AppState {
     case "UPDATE_CANVAS_OBJECT":
       return {
         ...state,
-        canvasObjects: state.canvasObjects.map((obj) =>
-          obj.id === action.payload.id
-            ? { ...obj, ...action.payload.updates }
-            : obj,
-        ),
+        canvasObjects: state.canvasObjects.map((obj) => {
+          if (obj.id !== action.payload.id) return obj;
+          if (obj.type === "icon" && action.payload.updates.type === "icon") {
+            return { ...obj, ...action.payload.updates };
+          } else if (
+            obj.type === "text" &&
+            action.payload.updates.type === "text"
+          ) {
+            return { ...obj, ...action.payload.updates };
+          } else {
+            return obj;
+          }
+        }),
       };
     case "DELETE_CANVAS_OBJECT":
       return {

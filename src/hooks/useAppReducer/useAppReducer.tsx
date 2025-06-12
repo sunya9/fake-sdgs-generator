@@ -138,19 +138,14 @@ export function useAppReducer() {
       const scaleX = node.scaleX();
       const scaleY = node.scaleY();
 
+      // For all objects, keep the scale values instead of modifying width/height
       updateCanvasObject(obj.id, {
         x: node.x(),
         y: node.y(),
         rotation: node.rotation(),
-        width: obj.width * scaleX,
-        height: obj.height * scaleY,
-        scaleX: 1,
-        scaleY: 1,
+        scaleX: scaleX,
+        scaleY: scaleY,
       });
-
-      // Reset scale to 1 after capturing the values
-      node.scaleX(1);
-      node.scaleY(1);
     },
     [updateCanvasObject],
   );

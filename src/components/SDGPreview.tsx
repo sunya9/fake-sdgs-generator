@@ -89,21 +89,31 @@ export function SDGPreview({
   const downloadImage = useCallback(async () => {
     if (stageRef.current) {
       try {
-        const dataURL = stageRef.current.toDataURL({
-          mimeType: "image/png",
-          quality: 1,
-          pixelRatio: 2,
-        });
+        // 選択状態を一時的に解除してダウンロード
+        const currentSelection = selectedObjectId;
+        setSelectedObjectId(null);
+        
+        // Transformerが非表示になるまで少し待つ
+        setTimeout(() => {
+          const dataURL = stageRef.current!.toDataURL({
+            mimeType: "image/png",
+            quality: 1,
+            pixelRatio: 2,
+          });
 
-        const link = document.createElement("a");
-        link.download = `fake-sdg-${sdgNumber}-${sdgText}.png`;
-        link.href = dataURL;
-        link.click();
+          const link = document.createElement("a");
+          link.download = `fake-sdg-${sdgNumber}-${sdgText}.png`;
+          link.href = dataURL;
+          link.click();
+          
+          // 元の選択状態を復元
+          setSelectedObjectId(currentSelection);
+        }, 100);
       } catch (error) {
         console.error("Error generating image:", error);
       }
     }
-  }, [sdgNumber, sdgText]);
+  }, [sdgNumber, sdgText, selectedObjectId, setSelectedObjectId]);
 
   const [stageSize, setStageSize] = useState({
     width: DEFAULT_CANVAS_SIZE,
@@ -179,15 +189,15 @@ export function SDGPreview({
                   width={obj.width}
                   height={obj.height}
                   rotation={obj.rotation}
-                  scaleX={obj.scaleX || 1}
-                  scaleY={obj.scaleY || 1}
+                  scaleX={obj.scaleX}
+                  scaleY={obj.scaleY}
                   draggable
                   onClick={() => setSelectedObjectId(obj.id)}
                   onDragEnd={(e) => onObjectDragEnd(obj.id, e)}
                   onTransformEnd={(e) => onObjectTransformEnd(obj, e)}
                   onDblClick={() => onObjectDoubleClick(obj)}
                 >
-                  {obj.type === "icon" && obj.imageElement && (
+                  {obj.type === "icon" && (
                     <Image
                       image={obj.imageElement.image()}
                       width={obj.width}
@@ -227,7 +237,18 @@ export function SDGPreview({
                 ]}
                 boundBoxFunc={(oldBox, newBox) => {
                   // Limit resize
-                  if (newBox.width < 5 || newBox.height < 5) {
+                  const minScale = 0.1;
+                  const maxScale = 10;
+
+                  const scaleX = newBox.width / oldBox.width;
+                  const scaleY = newBox.height / oldBox.height;
+
+                  if (
+                    scaleX < minScale ||
+                    scaleY < minScale ||
+                    scaleX > maxScale ||
+                    scaleY > maxScale
+                  ) {
                     return oldBox;
                   }
                   return newBox;
@@ -237,7 +258,7 @@ export function SDGPreview({
           </Stage>
         </div>
         <div className="text-xs text-gray-500">
-          アイコンをクリックして追加、選択してリサイズ、ダブルクリックで削除
+          クリックで選択、ドラッグで移動、ハンドルでリサイズ・回転。アイコンはダブルクリックで削除
         </div>
       </CardContent>
       <CardFooter className="flex-wrap gap-2">
