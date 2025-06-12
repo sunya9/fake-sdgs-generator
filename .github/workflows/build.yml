@@ -7,9 +7,14 @@ on:
         description: "Name of the build artifact"
         value: ${{ jobs.build.outputs.artifact-name }}
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       artifact-name: ${{ steps.artifact.outputs.name }}
     steps:
