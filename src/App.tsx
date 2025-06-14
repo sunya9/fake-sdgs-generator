@@ -82,7 +82,7 @@ export function App() {
           </li>
           <li>
             <Button asChild variant="link" className="p-0">
-              <a href="https://x.com/ephemerealMocha">@ephemerealMocha</a>
+              <a href="https://x.com/ephemeralMocha">@ephemeralMocha</a>
             </Button>
           </li>
         </ul>
