@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "html2canvas": "^1.4.1",
     "konva": "^9.3.20",
-    "lucide-react": "^0.514.0",
+    "lucide-react": "^0.515.0",
     "react": "^19.1.0",
     "react-color": "^2.19.3",
     "react-dom": "^19.1.0",
