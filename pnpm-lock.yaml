@@ -69,8 +69,8 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0(react@19.1.0)
       react-konva:
-        specifier: ^19.0.6
-        version: 19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^19.0.7
+        version: 19.0.7(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
@@ -1857,8 +1857,8 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react-konva@19.0.6:
-    resolution: {integrity: sha512-6jsjU1QAStwP4AulaE2BqNlO3Oq+YwvC7OfeEfrj4RSr/CiACojYvdAuQ8Fm7XoALwQOGWf9fqeGvDWD4/c2Cg==}
+  react-konva@19.0.7:
+    resolution: {integrity: sha512-uYWCpSv4ajLymTh8S8fV9396fHDX7eDTWiLGkYlBuawud5MoNiuGjapPhA5Avdy/Jfh9P2KaWuNf4i9PI1F9HQ==}
     peerDependencies:
       konva: ^8.0.1 || ^7.2.5 || ^9.0.0
       react: ^18.3.1 || ^19.0.0
@@ -1970,9 +1970,6 @@ packages:
 
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
-
-  tailwindcss@4.1.10:
-    resolution: {integrity: sha512-P3nr6WkvKV/ONsTzj6Gb57sWPMX29EPNPopo7+FcpkQaNsrNpZ1pv8QmrYI2RqEKD7mlGqLnGovlcYnBK0IqUA==}
 
   tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
@@ -3679,7 +3676,7 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-konva@19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-konva@19.0.7(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@types/react-reconciler': 0.32.0(@types/react@19.1.8)
       its-fine: 2.0.0(@types/react@19.1.8)(react@19.1.0)
@@ -3803,8 +3800,6 @@ snapshots:
       has-flag: 4.0.0
 
   tailwind-merge@3.3.1: {}
-
-  tailwindcss@4.1.10: {}
 
   tailwindcss@4.1.11: {}
 
