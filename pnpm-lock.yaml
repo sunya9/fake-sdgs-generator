@@ -51,8 +51,8 @@ importers:
         specifier: ^1.4.1
         version: 1.4.1
       konva:
-        specifier: ^9.3.22
-        version: 9.3.22
+        specifier: ^10.0.8
+        version: 10.0.8
       lucide-react:
         specifier: ^0.548.0
         version: 0.548.0(react@19.2.0)
@@ -70,7 +70,7 @@ importers:
         version: 5.5.0(react@19.2.0)
       react-konva:
         specifier: ^19.2.0
-        version: 19.2.0(@types/react@19.2.2)(konva@9.3.22)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 19.2.0(@types/react@19.2.2)(konva@10.0.8)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.4.0
@@ -1584,8 +1584,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  konva@9.3.22:
-    resolution: {integrity: sha512-yQI5d1bmELlD/fowuyfOp9ff+oamg26WOCkyqUyc+nczD/lhRa3EvD2MZOoc4c1293TAubW9n34fSQLgSeEgSw==}
+  konva@10.0.8:
+    resolution: {integrity: sha512-kQqErBIj2mR/srYDheRD2hq5v0gkwqoJZvbPz3DhCcyRNJfMEnd/AzLhWz2f567BB9vtL2p2EqKwI6n+MyM9Hw==}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -3491,7 +3491,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  konva@9.3.22: {}
+  konva@10.0.8: {}
 
   levn@0.4.1:
     dependencies:
@@ -3691,11 +3691,11 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-konva@19.2.0(@types/react@19.2.2)(konva@9.3.22)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  react-konva@19.2.0(@types/react@19.2.2)(konva@10.0.8)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@types/react-reconciler': 0.32.2(@types/react@19.2.2)
       its-fine: 2.0.0(@types/react@19.2.2)(react@19.2.0)
-      konva: 9.3.22
+      konva: 10.0.8
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       react-reconciler: 0.33.0(react@19.2.0)
