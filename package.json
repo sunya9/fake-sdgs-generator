@@ -26,7 +26,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "html2canvas": "^1.4.1",
-    "konva": "^9.3.22",
+    "konva": "^10.0.12",
     "lucide-react": "^0.548.0",
     "react": "^19.2.0",
     "react-color": "^2.19.3",
